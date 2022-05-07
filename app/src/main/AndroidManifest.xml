@@ -11,7 +11,11 @@
         android:theme="@style/Theme.App_002">
         <activity
             android:name=".TercerActivity"
-            android:exported="false" />
+            android:exported="true">
+
+        </activity>
+
+
         <activity
             android:name=".IngresoActivity"
             android:exported="true">

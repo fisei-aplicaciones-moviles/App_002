@@ -12,6 +12,5 @@
     <string name="edittext_hint_clave">Digite la clave</string>
 
     <string name="button_text_ingresar">Ingresar</string>
-    <string name="button_text_mostraractivity">Mostrar Activity</string>
 
 </resources>

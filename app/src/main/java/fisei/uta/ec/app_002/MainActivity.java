@@ -2,7 +2,6 @@ package fisei.uta.ec.app_002;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -57,13 +56,10 @@ public class MainActivity extends AppCompatActivity {
        });
 
        // obtener los parametros
-        Bundle bundle = this.getIntent().getExtras();
+        Bundle bundle = getIntent().getExtras();
 
        // et_resultado.setText(bundle.getString("variable_usuario"));
-       // et_resultado.setText(bundle.getString("variable_clave"));
-      //  et_segundoValor.setText(bundle.getString("variable_clave"));
-        this.getSupportActionBar().setTitle("Esta conectado con el usuario:" +
-                bundle.getString("variable_usuario"));
+        et_resultado.setText(bundle.getString("variable_clave"));
     }
 
 /*
@@ -94,13 +90,5 @@ public class MainActivity extends AppCompatActivity {
     public void onClicSumar(View view)
     {
 
-    }
-
-    public void onClicMostrarActivity(View view)
-    {
-        Intent intent = new Intent(this, TercerActivity.class);
-
-        // con el metodod (putExtra) pasar los parametros
-        this.startActivity(intent);
     }
 }

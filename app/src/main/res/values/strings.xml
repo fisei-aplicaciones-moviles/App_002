@@ -14,4 +14,8 @@
     <string name="button_text_ingresar">Ingresar</string>
     <string name="button_text_mostraractivity">Mostrar Activity</string>
 
+    <string name="button_text_llamar">Llamar</string>
+    <string name="button_text_navegador">Mostrar navegador</string>
+    <string name="lista_de_valores">LISTA DE VALORES</string>
+
 </resources>

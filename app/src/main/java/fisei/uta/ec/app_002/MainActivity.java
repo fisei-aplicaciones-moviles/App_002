@@ -3,6 +3,7 @@ package fisei.uta.ec.app_002;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -103,4 +104,20 @@ public class MainActivity extends AppCompatActivity {
         // con el metodod (putExtra) pasar los parametros
         this.startActivity(intent);
     }
+
+    public void onClicLlamar(View view)
+    {
+        Intent intent = new Intent(Intent.ACTION_DIAL,
+                Uri.parse("tel:+5930992414"));
+        //Uri uri = new Uri("");
+        startActivity(intent);
+    }
+
+    public void onClicMostrarNavegador(View view)
+    {
+        Intent intent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://www.google.com"));
+        startActivity(intent);
+    }
+
 }

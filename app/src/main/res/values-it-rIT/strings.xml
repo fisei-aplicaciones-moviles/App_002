@@ -15,4 +15,7 @@
     <string name="button_text_ingresar">Entrare dentro</string>
     <string name="button_text_mostraractivity">Mostra attività</string>
 
+    <string name="button_text_llamar">Mostrar Activity</string>
+    <string name="button_text_navegador">Mostrar Activity</string>
+
 </resources>

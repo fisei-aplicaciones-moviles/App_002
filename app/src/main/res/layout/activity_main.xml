@@ -81,9 +81,9 @@
         android:layout_marginEnd="16dp"
         android:text="@string/button_text_salir"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMostrarActivity" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonMostrarNavegador" />
 
     <Button
         android:id="@+id/buttonMostrarActivity"
@@ -98,4 +98,30 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonPotencia" />
+
+    <Button
+        android:id="@+id/buttonLlamar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="onClicLlamar"
+        android:text="@string/button_text_llamar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMostrarActivity" />
+
+    <Button
+        android:id="@+id/buttonMostrarNavegador"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="onClicMostrarNavegador"
+        android:text="@string/button_text_navegador"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLlamar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

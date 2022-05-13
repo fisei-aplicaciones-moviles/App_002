@@ -2,6 +2,9 @@ package fisei.uta.ec.app_002;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -38,9 +41,13 @@ public class TercerActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String itemSelected = (String) listViewDatos.getAdapter().getItem(i);
 
-                Toast.makeText(getApplicationContext(),
-                        "Item seleccionado" + itemSelected,
-                        Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),
+//                        "Item seleccionado" + itemSelected,
+//                        Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent();
+                intent.setData(Uri.parse(itemSelected));
+                setResult(Activity.RESULT_OK, intent);
 
                 finish();
             }

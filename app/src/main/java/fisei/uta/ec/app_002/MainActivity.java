@@ -1,13 +1,21 @@
 package fisei.uta.ec.app_002;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import fisei.uta.ec.logica.Matematicas;
 
@@ -19,6 +27,27 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_potencia;
     private Button btn_salir;
 
+    private TextView textViewMensaje;
+
+    // Nueva forma de obtener los datos regresados al cerrar
+    // un actividad
+    ActivityResultLauncher<Intent> activityResult =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                    new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    // procesar los datos
+                    if (result.getResultCode() == Activity.RESULT_OK)
+                    {
+                        // obtener los datos regresados
+                        Intent data =  result.getData();
+//                        Toast.makeText(getApplicationContext(),
+//                                "Dato regresado" + data.getDataString(),
+//                                Toast.LENGTH_LONG).show();
+                        textViewMensaje.setText(data.getDataString());
+                    }
+                }
+            });
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         et_primerValor = (EditText) findViewById(R.id.editTextPrimerValor);
         et_segundoValor = findViewById(R.id.editTextSegundoValor);
         et_resultado = findViewById(R.id.editTextResultado);
+
+        textViewMensaje = findViewById(R.id.textViewMensaje);
 
         // manejador para el evento click del boton
         //btn_potencia = new Button();
@@ -102,7 +133,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TercerActivity.class);
 
         // con el metodod (putExtra) pasar los parametros
-        this.startActivity(intent);
+        //this.startActivity(intent);
+
+        //startActivityForResult(intent, );
+        activityResult.launch(intent);
     }
 
     public void onClicLlamar(View view)
@@ -120,4 +154,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }

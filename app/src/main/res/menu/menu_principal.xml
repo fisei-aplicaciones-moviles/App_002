@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_archivo"
+        android:icon="@android:drawable/btn_star"
+        android:title="@string/menu_archivo"
+        app:showAsAction="always" />
+
+    <!--Opcion principal del menu-->
+    <item android:title="@string/menu_editar"
+        android:id="@+id/menu_editar"
+        app:showAsAction="ifRoom">
+
+        <!--submenus-->
+        <menu>
+            <group>
+             <item android:title="@string/menu_editar_cortar"
+                 android:id="@+id/menu_cortar"
+                 android:icon="@android:drawable/btn_star"
+                 app:showAsAction="ifRoom"/>
+
+                <item android:title="@string/menu_editar_copiar"
+                    android:id="@+id/menu_copiar"
+                    android:icon="@android:drawable/btn_star"
+                    app:showAsAction="ifRoom"/>
+
+                <item android:title="@string/menu_editar_pegar"
+                    android:id="@+id/menu_pegar"
+                    android:icon="@android:drawable/btn_star"
+                    app:showAsAction="ifRoom"/>
+            </group>
+        </menu>
+
+    </item>
+
+
+    <item
+        android:id="@+id/menu_acercade"
+        android:icon="@android:drawable/ic_lock_power_off"
+        android:title="@string/menu_acercade"
+        app:showAsAction="never" />
+
+</menu>

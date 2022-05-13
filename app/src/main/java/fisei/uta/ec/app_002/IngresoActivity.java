@@ -1,9 +1,12 @@
 package fisei.uta.ec.app_002;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -49,5 +52,42 @@ public class IngresoActivity extends AppCompatActivity {
 
             //Toast.makeText(getApplicationContext(), "Usuario/Clave incorrectos", Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        this.getMenuInflater().inflate(R.menu.menu_principal, menu);
+
+        return super.onCreateOptionsMenu(menu);
+        //return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // obtener el id del item donde el usuario presiono
+        int id = item.getItemId();
+
+        if (id == R.id.menu_archivo)
+        {
+            Toast.makeText(this,
+                    "Presiono en:Archivo",
+                    Toast.LENGTH_LONG).show();
+        }
+
+        if (id == R.id.menu_acercade)
+        {
+            Toast.makeText(this,
+                    "Presiono en:Acerca de...",
+                    Toast.LENGTH_LONG).show();
+        }
+
+        if (id == R.id.menu_copiar)
+        {
+            Toast.makeText(this,
+                    "Presiono en:Copiar",
+                    Toast.LENGTH_LONG).show();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

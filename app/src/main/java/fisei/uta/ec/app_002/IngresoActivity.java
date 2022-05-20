@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +24,8 @@ public class IngresoActivity extends AppCompatActivity {
 
         editTextUsuario = findViewById(R.id.editTextUsuario);
         editTextClave  = findViewById(R.id.editTextClave);
+
+        registerForContextMenu(editTextClave);
     }
 
     public void  onClickIngresar(View view)
@@ -89,5 +92,35 @@ public class IngresoActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        getMenuInflater().inflate(R.menu.menu_contextual, menu);
+
+        super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case R.id.menu_configuracion:
+                Toast.makeText(this, "Presiono en: configuracion",
+                        Toast.LENGTH_LONG).show();
+                break;
+
+            case R.id.menu_imprimir:
+                Toast.makeText(this, "Presiono en: imprimir",
+                        Toast.LENGTH_LONG).show();
+                break;
+
+            case R.id.menu_salir:
+                finish();
+                break;
+        }
+
+        return super.onContextItemSelected(item);
     }
 }

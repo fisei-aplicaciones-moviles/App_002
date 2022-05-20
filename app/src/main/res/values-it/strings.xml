@@ -27,4 +27,8 @@
     <string name="menu_editar_copiar">copiar</string>
     <string name="menu_editar_pegar">Pegar</string>
 
+    <string name="menu_contextual_configuracion">Configuracion</string>
+    <string name="menu_contextual_imprimir">Imprimir</string>
+    <string name="menu_contextual_salir">Salir</string>
+
 </resources>

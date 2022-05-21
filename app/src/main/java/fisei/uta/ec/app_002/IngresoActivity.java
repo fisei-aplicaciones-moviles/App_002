@@ -36,6 +36,7 @@ public class IngresoActivity extends AppCompatActivity {
 
         if (usuario.equals("admin") && clave.equals("admin"))
         {
+            /*
             // mostrar un activity
             Intent intent = new Intent(IngresoActivity.this, MainActivity.class);
             //Intent intent = new Intent(this, MainActivity.class);
@@ -48,6 +49,11 @@ public class IngresoActivity extends AppCompatActivity {
             //........putExtra
 
             startActivity(intent);
+            *
+             */
+
+           Intent intent = new Intent(this, ClientesActivity.class);
+           startActivity(intent);
         }
         else
         {

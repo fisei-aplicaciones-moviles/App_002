@@ -30,4 +30,16 @@
     <string name="menu_contextual_imprimir">Imprimir</string>
     <string name="menu_contextual_salir">Salir</string>
 
+    <string name="edittext_text_codigo">Ingrese el código</string>
+    <string name="edittext_text_nombre">Ingrese el nombre</string>
+    <string name="edittext_text_apellido">Ingrese el apellido</string>
+    <string name="edittext_text_saldo">Ingrese el saldo</string>
+
+
+    <string name="button_text_insertar">Insertar</string>
+    <string name="button_text_borrar">Borrar</string>
+    <string name="button_text_modificar">Modificar</string>
+    <string name="button_text_buscar">Buscar</string>
+    <string name="button_text_mostrar_clientes">Mostrar Clientes</string>
+
 </resources>

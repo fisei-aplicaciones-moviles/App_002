@@ -87,8 +87,26 @@ public class ClientesActivity extends AppCompatActivity {
         // abrir la BD en modo escritura (SELECT, DML, DDL)
         SQLiteDatabase sql = clientsDataBase.getWritableDatabase();
 
-        //
+        //Obtener el codigo del registro a eliminar
+        String codigoEliminar = editTextCodigo.getText().toString();
 
+        // eliminar el eliminar
+        int cantidad = sql.delete("Clientes",
+                "Codigo=" + codigoEliminar, null );
+
+        //cerrar la BD
+        sql.close();
+
+        limpiarControles();
+
+        if (cantidad == 1)
+        {
+            Toast.makeText(this, "Se eliminó el cliente", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(this, "No existe el cliente para eliminar", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void onClicModificar(View view)
@@ -101,6 +119,34 @@ public class ClientesActivity extends AppCompatActivity {
 
         // abrir la BD en modo escritura (SELECT, DML, DDL)
         SQLiteDatabase sql = clientsDataBase.getWritableDatabase();
+
+        // obtener los datos para realizar el cambio el registro seleccionado
+
+        // obtener los datos ingresados en los controles
+        String codigo = editTextCodigo.getText().toString();
+        String nombre = editTextNombre.getText().toString();
+        String apellido = editTextApellido.getText().toString();
+        String saldo = editTextSaldo.getText().toString();
+
+        ContentValues values = new ContentValues();
+        values.put("Nombre", nombre);
+        values.put("Apellido", apellido);
+        values.put("Saldo", saldo);
+
+        values.put("Codigo", codigo);
+
+        int cantidad = sql.update("Clientes", values, "Codigo=" + codigo, null);
+        //cerrar la BD.
+        sql.close();
+
+        if (cantidad == 1)
+        {
+            Toast.makeText(this, "Se modificó el cliente", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(this, "No pudo modificar el cliente", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void onClicBuscar(View view)
